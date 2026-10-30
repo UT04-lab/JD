@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Janki 💗</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg,#ffe0ed,#fce7f3,#eadcff);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-x: hidden;
+  color: #75435e;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  animation: float 7s linear infinite;
+  pointer-events: none;
+  opacity: .65;
+}
+
+@keyframes float {
+  to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+.card {
+  width: 100%;
+  max-width: 410px;
+  background: rgba(255,255,255,.88);
+  padding: 30px 22px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 15px 50px #bd79a644;
+  border: 2px solid white;
+  position: relative;
+  z-index: 2;
+}
+
+.bow { font-size: 38px; }
+
+h1 {
+  color: #d65391;
+  font-size: 29px;
+}
+
+h2 { color: #d65391; }
+
+p {
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+button {
+  background: #e878aa;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 13px 24px;
+  font-size: 15px;
+  margin: 8px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px #e878aa44;
+}
+
+button:active { transform: scale(.96); }
+
+#letter { display: none; }
+
+#final { display: none; }
+
+.divider {
+  color: #e99abc;
+  letter-spacing: 5px;
+  margin: 20px 0;
+}
+
+.small {
+  font-size: 11px;
+  color: #b88ba5;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="bow">🎀</div>
+
+<div style="font-size:48px">💗</div>
+
+<h1>Hey Janki!</h1>
+
+<p>
+A special notification has arrived
+from someone who is probably your
+most annoying human. 😭
+</p>
+
+<div class="divider">♡ ♡ ♡</div>
+
+<h3>⚠️ Friendship System Report</h3>
+
+<p>
+Error 404: Janki jii"s smile not found.<br>
+Error 101: Developer said something stupid.<br>
+Error 500: Janki jii is angry.
+</p>
+
+<button onclick="openLetter()">
+Open your little surprise 💌
+</button>
+
+<div id="letter">
+
+<div class="divider">🌷 ✨ 🌷</div>
+
+<h2>Okay Janki, listen...</h2>
+
+<p>
+I'm genuinely sorryyyy yaar. 🫠❤️
+<br><br>
+Mera intention tujhe blame karne ka bilkul nahi tha. I know tera routine and I should've understood ki tu college ke baad tired hoti hai.
+
+<br><br>
+
+I just wanted to talk to you, isliye aisa bol diya. But that doesn't mean ki I'm questioning your interest in talking to me.
+
+<br><br>
+
+Aage se aisa nahi bolunga. Tu jab free ho aur tera mann ho tab baat kar lena. And please mood kharab mat kar, meri wajah se. 🥹❤️
+
+<br><br>
+I promise I'll be more understanding
+and won't make you feel bad about it🧸💗
+</p>
+
+
+<br><br>
+No uninstall button available.
+Unfortunately for you. 😭❤️
+</p>
+
+<p><b>Sorry, Janki. Take care! 🌸</b></p>
+
+</div>
+
+<div class="divider">♡ made with love ♡</div>
+
+<p class="small">
+Designed by your favourite idiot | 2026
+</p>
+
+</div>
+
+<script>
+function openLetter() {
+  document.getElementById("letter").style.display = "block";
+}
+
+function showFinal() {
+  document.getElementById("final").style.display = "block";
+}
+
+const emojis = ["💗","💕","🌸","✨","🎀"];
+
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.fontSize = (15+Math.random()*20)+"px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(),7000);
+},500);
+</script>
+
+</body>
+</html>
