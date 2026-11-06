@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For Vedanshi 💗</title>
 
 <style>
@@ -30,6 +31,7 @@ body {
   animation: float 7s linear infinite;
   pointer-events: none;
   opacity: .65;
+  z-index: 1;
 }
 
 @keyframes float {
@@ -61,7 +63,7 @@ h1 {
   font-size: 29px;
 }
 
-h2 {
+h3 {
   color: #d65391;
 }
 
@@ -84,10 +86,6 @@ button {
 
 button:active {
   transform: scale(.96);
-}
-
-button:disabled {
-  opacity: .7;
 }
 
 #letter {
@@ -122,7 +120,9 @@ button:disabled {
 video {
   display: block;
   width: 100%;
+  height: auto;
   border-radius: 14px;
+  background: #222;
 }
 
 .divider {
@@ -134,6 +134,12 @@ video {
 .small {
   font-size: 11px;
   color: #b88ba5;
+}
+
+#videoError {
+  display: none;
+  color: #d65391;
+  font-size: 12px;
 }
 
 </style>
@@ -168,7 +174,7 @@ video {
     <h3>Just for you, Vedanshi ❤️</h3>
 
     <p>
-      There's something I wanted you to see... 🙈💗
+      There's something I wanted you to see... 💗
     </p>
 
     <div class="video-box">
@@ -177,10 +183,10 @@ video {
         id="surpriseVideo"
         controls
         playsinline
-        preload="metadata">
+        preload="auto">
 
         <source
-          src="VN20261106_205446.mp4"
+          src="./VN20261106_205446.mp4"
           type="video/mp4">
 
         Your browser does not support video playback.
@@ -188,6 +194,10 @@ video {
       </video>
 
     </div>
+
+    <p id="videoError">
+      Video couldn't load. Please try refreshing the page.
+    </p>
 
     <p class="small">
       Watch till the end... 🎀
@@ -200,7 +210,7 @@ video {
   <div class="divider">♡ made with love ♡</div>
 
   <p class="small">
-    Designed by your non favourite person 👨‍🎓 
+    Designed by your non favourite person 👨‍🎓 | 2026
   </p>
 
 </div>
@@ -213,29 +223,28 @@ function openLetter() {
   const video = document.getElementById("surpriseVideo");
   const button = document.getElementById("surpriseButton");
 
-  // Show video section
   letter.style.display = "block";
 
-  // Change button text
   button.textContent = "Your surprise is here! ❤️";
 
-  // Prevent repeated clicks
-  button.disabled = true;
-
-  // Scroll to video
   letter.scrollIntoView({
     behavior: "smooth",
     block: "center"
   });
 
-  // Play video
   video.play().catch(() => {
-    // If autoplay is blocked, the user can tap play manually.
-    button.disabled = false;
-    button.textContent = "Tap to play your surprise 💗";
+    button.textContent = "Tap play to watch your surprise 💗";
   });
 
 }
+
+// Video loading error
+
+const video = document.getElementById("surpriseVideo");
+
+video.addEventListener("error", () => {
+  document.getElementById("videoError").style.display = "block";
+});
 
 // Floating hearts and flowers
 
