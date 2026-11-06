@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Janki 💗</title>
+<title>For Vedanshi 💗</title>
 
 <style>
 * { box-sizing: border-box; }
@@ -105,71 +105,56 @@ button:active { transform: scale(.96); }
 
 <p>
 A special notification has arrived
-from someone who is probably your
-most annoying human. 😭
+from someone who has a suprise 
+gift for you......
 </p>
 
 <div class="divider">♡ ♡ ♡</div>
 
-<h3>⚠️ Friendship System Report</h3>
 
-<p>
-Error 404: Janki jii"s smile not found.<br>
-Error 101: Developer said something stupid.<br>
-Error 500: Janki jii is angry.
-</p>
 
 <button onclick="openLetter()">
 Open your little surprise 💌
 </button>
 
-<div id="letter">
+<div id="letter" style="display:none; margin-top:20px;">
+
+    <h3>Just for you, Janki ❤️</h3>
+
+    <video
+        id="surpriseVideo"
+        controls
+        playsinline
+        preload="metadata"
+        style="width:100%; max-width:320px; border-radius:18px;">
+
+        <source src="surprise.mp4" type="video/mp4">
+
+        Your browser does not support video.
+    </video>
+
+</div>
 
 <div class="divider">🌷 ✨ 🌷</div>
 
-<h2>Okay Janki, listen...</h2>
-
-<p>
-I'm genuinely sorryyyy yaar. 🫠❤️
-<br><br>
-Mera intention tujhe blame karne ka bilkul nahi tha. I know tera routine and I should've understood ki tu college ke baad tired hoti hai.
-
-<br><br>
-
-I just wanted to talk to you, isliye aisa bol diya. But that doesn't mean ki I'm questioning your interest in talking to me.
-
-<br><br>
-
-Aage se aisa nahi bolunga. Tu jab free ho aur tera mann ho tab baat kar lena. And please mood kharab mat kar, meri wajah se. 🥹❤️
-
-<br><br>
-I promise I'll be more understanding
-and won't make you feel bad about it🧸💗
-</p>
-
-
-<br><br>
-No uninstall button available.
-Unfortunately for you. 😭❤️
-</p>
-
-<p><b>Sorry, Janki. Take care! 🌸</b></p>
 
 </div>
 
 <div class="divider">♡ made with love ♡</div>
 
 <p class="small">
-Designed by your favourite idiot | 2026
+Designed by your non favourite person👨‍🎓
 </p>
 
 </div>
 
 <script>
 function openLetter() {
-  document.getElementById("letter").style.display = "block";
-}
+    document.getElementById("letter").style.display = "block";
 
+    const video = document.getElementById("surpriseVideo");
+    video.play();
+}
 function showFinal() {
   document.getElementById("final").style.display = "block";
 }
