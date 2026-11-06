@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
 <title>For Vedanshi 💗</title>
 
 <style>
+
 * {
   box-sizing: border-box;
 }
@@ -20,7 +22,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 20px 14px;
   overflow-x: hidden;
   color: #75435e;
 }
@@ -44,7 +46,8 @@ body {
 .card {
   width: 100%;
   max-width: 410px;
-  background: rgba(255,255,255,.88);
+  margin: auto;
+  background: rgba(255,255,255,.92);
   padding: 30px 22px;
   border-radius: 30px;
   text-align: center;
@@ -77,11 +80,12 @@ button {
   color: white;
   border: none;
   border-radius: 30px;
-  padding: 13px 24px;
+  padding: 14px 24px;
   font-size: 15px;
   margin: 8px;
   cursor: pointer;
   box-shadow: 0 5px 15px #e878aa44;
+  max-width: 100%;
 }
 
 button:active {
@@ -163,8 +167,12 @@ video {
 
   <div class="divider">♡ ♡ ♡</div>
 
-  <button id="surpriseButton" onclick="openLetter()">
+  <button
+    id="surpriseButton"
+    onclick="openLetter()">
+
     Open your little surprise 💌
+
   </button>
 
   <!-- VIDEO SECTION -->
@@ -183,10 +191,10 @@ video {
         id="surpriseVideo"
         controls
         playsinline
-        preload="auto">
+        preload="metadata">
 
         <source
-          src="./VN20261106_205446.mp4"
+          src="https://ut04-lab.github.io/JD/VN20261106_205446.mp4"
           type="video/mp4">
 
         Your browser does not support video playback.
@@ -196,7 +204,7 @@ video {
     </div>
 
     <p id="videoError">
-      Video couldn't load. Please try refreshing the page.
+      Video couldn't load. Please tap Play or refresh the page.
     </p>
 
     <p class="small">
@@ -217,36 +225,52 @@ video {
 
 <script>
 
+// OPEN SURPRISE AND PLAY VIDEO
+
 function openLetter() {
 
   const letter = document.getElementById("letter");
   const video = document.getElementById("surpriseVideo");
   const button = document.getElementById("surpriseButton");
 
+  // Show video section
   letter.style.display = "block";
 
+  // Update button
   button.textContent = "Your surprise is here! ❤️";
 
+  // Attempt playback directly from the button click
+  const playPromise = video.play();
+
+  if (playPromise !== undefined) {
+
+    playPromise.catch(() => {
+
+      button.textContent = "Tap the video to play 💗";
+
+    });
+
+  }
+
+  // Bring video into view
   letter.scrollIntoView({
     behavior: "smooth",
-    block: "center"
-  });
-
-  video.play().catch(() => {
-    button.textContent = "Tap play to watch your surprise 💗";
+    block: "nearest"
   });
 
 }
 
-// Video loading error
+// VIDEO ERROR HANDLING
 
 const video = document.getElementById("surpriseVideo");
 
 video.addEventListener("error", () => {
+
   document.getElementById("videoError").style.display = "block";
+
 });
 
-// Floating hearts and flowers
+// FLOATING HEARTS AND FLOWERS
 
 const emojis = ["💗","💕","🌸","✨","🎀"];
 
