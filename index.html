@@ -7,7 +7,9 @@
 <title>For Vedanshi 💗</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -31,7 +33,10 @@ body {
 }
 
 @keyframes float {
-  to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 .card {
@@ -47,14 +52,18 @@ body {
   z-index: 2;
 }
 
-.bow { font-size: 38px; }
+.bow {
+  font-size: 38px;
+}
 
 h1 {
   color: #d65391;
   font-size: 29px;
 }
 
-h2 { color: #d65391; }
+h2 {
+  color: #d65391;
+}
 
 p {
   line-height: 1.8;
@@ -73,11 +82,48 @@ button {
   box-shadow: 0 5px 15px #e878aa44;
 }
 
-button:active { transform: scale(.96); }
+button:active {
+  transform: scale(.96);
+}
 
-#letter { display: none; }
+button:disabled {
+  opacity: .7;
+}
 
-#final { display: none; }
+#letter {
+  display: none;
+  margin-top: 20px;
+  animation: appear .6s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.video-box {
+  width: 100%;
+  max-width: 320px;
+  margin: 15px auto;
+  padding: 5px;
+  background: #fce7f3;
+  border: 2px solid #f5b4d0;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px #e878aa33;
+  overflow: hidden;
+}
+
+video {
+  display: block;
+  width: 100%;
+  border-radius: 14px;
+}
 
 .divider {
   color: #e99abc;
@@ -97,80 +143,124 @@ button:active { transform: scale(.96); }
 
 <div class="card">
 
-<div class="bow">🎀</div>
+  <div class="bow">🎀</div>
 
-<div style="font-size:48px">💗</div>
+  <div style="font-size:48px">💗</div>
 
-<h1>Hey Janki!</h1>
+  <h1>Hey Vedanshi!</h1>
 
-<p>
-A special notification has arrived
-from someone who has a suprise 
-gift for you......
-</p>
+  <p>
+    A special notification has arrived
+    from someone who has a surprise
+    gift for you......
+  </p>
 
-<div class="divider">♡ ♡ ♡</div>
+  <div class="divider">♡ ♡ ♡</div>
 
+  <button id="surpriseButton" onclick="openLetter()">
+    Open your little surprise 💌
+  </button>
 
+  <!-- VIDEO SECTION -->
 
-<button onclick="openLetter()">
-Open your little surprise 💌
-</button>
+  <div id="letter">
 
-<div id="letter" style="display:none; margin-top:20px;">
+    <h3>Just for you, Vedanshi ❤️</h3>
 
-    <h3>Just for you, Janki ❤️</h3>
+    <p>
+      There's something I wanted you to see... 🙈💗
+    </p>
 
-    <video
+    <div class="video-box">
+
+      <video
         id="surpriseVideo"
         controls
         playsinline
-        preload="metadata"
-        style="width:100%; max-width:320px; border-radius:18px;">
+        preload="metadata">
 
-        <source src="surprise.mp4" type="video/mp4">
+        <source
+          src="VN20261106_205446.mp4"
+          type="video/mp4">
 
-        Your browser does not support video.
-    </video>
+        Your browser does not support video playback.
 
-</div>
+      </video>
 
-<div class="divider">🌷 ✨ 🌷</div>
+    </div>
 
+    <p class="small">
+      Watch till the end... 🎀
+    </p>
 
-</div>
+  </div>
 
-<div class="divider">♡ made with love ♡</div>
+  <div class="divider">🌷 ✨ 🌷</div>
 
-<p class="small">
-Designed by your non favourite person👨‍🎓
-</p>
+  <div class="divider">♡ made with love ♡</div>
+
+  <p class="small">
+    Designed by your non favourite person 👨‍🎓 
+  </p>
 
 </div>
 
 <script>
-function openLetter() {
-    document.getElementById("letter").style.display = "block";
 
-    const video = document.getElementById("surpriseVideo");
-    video.play();
+function openLetter() {
+
+  const letter = document.getElementById("letter");
+  const video = document.getElementById("surpriseVideo");
+  const button = document.getElementById("surpriseButton");
+
+  // Show video section
+  letter.style.display = "block";
+
+  // Change button text
+  button.textContent = "Your surprise is here! ❤️";
+
+  // Prevent repeated clicks
+  button.disabled = true;
+
+  // Scroll to video
+  letter.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+
+  // Play video
+  video.play().catch(() => {
+    // If autoplay is blocked, the user can tap play manually.
+    button.disabled = false;
+    button.textContent = "Tap to play your surprise 💗";
+  });
+
 }
-function showFinal() {
-  document.getElementById("final").style.display = "block";
-}
+
+// Floating hearts and flowers
 
 const emojis = ["💗","💕","🌸","✨","🎀"];
 
 setInterval(() => {
+
   const heart = document.createElement("div");
+
   heart.className = "heart";
-  heart.textContent = emojis[Math.floor(Math.random()*emojis.length)];
-  heart.style.left = Math.random()*100 + "vw";
-  heart.style.fontSize = (15+Math.random()*20)+"px";
+
+  heart.textContent =
+    emojis[Math.floor(Math.random() * emojis.length)];
+
+  heart.style.left = Math.random() * 100 + "vw";
+
+  heart.style.fontSize =
+    (15 + Math.random() * 20) + "px";
+
   document.body.appendChild(heart);
 
-  setTimeout(() => heart.remove(),7000);
-},500);
+  setTimeout(() => heart.remove(), 7000);
+
+}, 500);
+
 </script>
 
 </body>
